@@ -1,14 +1,10 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
+  dataService: service('data'),
+
   model() {
-    return [
-      {
-        authorName: "А.С. Пушкин", bookName: "Евгений Онегин"
-      },
-      {
-        authorName: "Л.Н. Толстой", bookName: "Война и мир"
-      }
-    ];
+    return this.get('dataService').getBooks();
   }
 });
