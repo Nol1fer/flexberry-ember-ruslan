@@ -6,11 +6,12 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
+Router.map(function () {
   this.route('meetings');
   this.route('speakers');
   this.route('books');
-  this.route('404', {path: '*path'});
+  this.route('404', { path: '*path' });
+  this.route('edit-book', { path: '/edit-book/:id' });
 });
 
 export default Router;
