@@ -26,5 +26,10 @@ export default Service.extend({
   deleteBook(book) {
     this.get('books').removeObject(book);
     return fetch(`${ENV.backendURL}/books/${book.id}`, { method: 'DELETE' });
+  },
+
+  createBook(book) {
+    return fetch(`${ENV.backendURL}/books`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(book) });
   }
+
 });

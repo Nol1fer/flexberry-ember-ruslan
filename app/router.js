@@ -13,6 +13,7 @@ Router.map(function () {
   this.route('error', { path: '/:error' });
   this.route('404', { path: '*path' });
   this.route('edit-book', { path: '/edit-book/:id' });
+  this.route('create-book');
 });
 
 export default Router;
