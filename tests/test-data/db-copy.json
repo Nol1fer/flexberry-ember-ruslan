@@ -1,0 +1,43 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "cover": "/uploads/_.webp",
+      "title": "Book1",
+      "author": "Author1",
+      "pages": 100,
+      "tags": [
+        "tag1"
+      ],
+      "rating": 90,
+      "description": "https://www.labirint.ru/books/878608/"
+    },
+    {
+      "id": 2,
+      "cover": "/uploads/_.webp",
+      "title": "Book2",
+      "author": "Author2",
+      "pages": 200,
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "rating": 70,
+      "description": "https://www.labirint.ru/books/407323/"
+    },
+    {
+      "id": 3,
+      "cover": "/uploads/_.webp",
+      "title": "Book3",
+      "author": "Author3",
+      "pages": 300,
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+      ],
+      "rating": 45,
+      "description": "https://www.labirint.ru/books/900460/"
+    }
+  ]
+}
