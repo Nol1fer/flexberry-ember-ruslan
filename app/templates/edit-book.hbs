@@ -2,37 +2,48 @@
   <div class="htop">
     <h2 class="text-center">Редактирование книги: {{model.title}}</h2>
     <form class="edit-form">
+      {{!-- onsubmit={{action "saveBook" }} --}}
       <div class="form-group row">
         <label for="inputTitle" class="col-sm-2 col-form-label text-right">Название</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="inputTitle" placeholder="Полное название книги">
+          {{input type="text" class="form-control form-control-lg" id="inputTitle" placeholder="Полное название книги"
+          value=model.title}}
+
         </div>
       </div>
       <div class="form-group row">
         <label for="inputAuthor" class="col-sm-2 col-form-label text-right">Автор</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="inputAuthor" placeholder="Фамилия И.О. автора">
+          {{input type="text" class="form-control form-control-lg" id="inputAuthor" placeholder="Фамилия И.О. автора"
+          value=model.author}}
         </div>
       </div>
       <div class="form-group row">
         <label for="inputPagesCount" class="col-sm-2 col-form-label text-right">Объем</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control form-control-lg" id="inputPagesCount"
-            placeholder="Количество страниц книги">
+          {{input type="number" class="form-control form-control-lg" id="inputPagesCount"
+          placeholder="Количество страниц книги" value=nodel.pages}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputRating" class="col-sm-2 col-form-label text-right">Рейтинг</label>
+        <div class="col-sm-10">
+          {{input type="number" class="form-control form-control-lg" id="inputRating"
+          placeholder="Рейтинг книги" value=model.rating}}
         </div>
       </div>
       <div class="form-group row">
         <label for="inputDescriptionURL" class="col-sm-2 col-form-label text-right">Описание</label>
         <div class="col-sm-10">
-          <input type="url" class="form-control form-control-lg" id="inputDescriptionURL"
-            placeholder="Ссылка на сайт с описанием книги">
+          {{input type="url" class="form-control form-control-lg" id="inputDescriptionURL"
+          placeholder="Ссылка на сайт с описанием книги" value=model.description}}
         </div>
       </div>
       <div class="form-group row">
         <label for="customFile" class="col-sm-2 col-form-label text-right">Обложка</label>
         <div class="input-group input-group-lg col-sm-10">
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" lang="ru">
+            {{input type="file" class="custom-file-input" id="customFile" lang="ru" value=model.cover}}
             <label class="custom-file-label form-control-lg placeholder-color" for="customFile"
               data-browse="Выбрать">Выберите файл</label>
           </div>
@@ -44,7 +55,7 @@
       <div class="form-group row">
         <label for="inputTags" class="col-sm-2 col-form-label text-right">Теги</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputPatronymic" placeholder="#Теги через запятую">
+          {{input type="text" class="form-control" id="inputPatronymic" placeholder="#Теги через запятую" value=model.tags}}
           <select multiple="multiple" data-role="tagsinput" style="display: none;" id="inputTags">
             <option value="суперкнига" selected="selected">суперкнига</option>
             <option value="программирование" selected="selected">программирование</option>
@@ -57,7 +68,6 @@
           {{#link-to "books" tagName="button" type="submit" class="btn btn-outline-secondary btn-lg"}}
           Отмена
           {{/link-to}}
-          {{!-- <button type="submit" class="btn btn-outline-secondary btn-lg">Отмена</button> --}}
         </div>
       </div>
     </form>

@@ -19,8 +19,8 @@ export default Service.extend({
   },
 
   getBook(id) {
-    // return fetch(`${ENV.backendURL}/books/${id}`).then((response) => response.json());
-    return this.get('books').find((book) => book.id === parseInt(id));
+    return fetch(`${ENV.backendURL}/books/${id}`).then((response) => response.json());
+    // return this.get('books').find((book) => book.id === parseInt(id));
   },
 
   deleteBook(book) {
