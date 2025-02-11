@@ -29,7 +29,19 @@ export default Service.extend({
   },
 
   createBook(book) {
-    return fetch(`${ENV.backendURL}/books`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(book) });
+    return fetch(`${ENV.backendURL}/books`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(book)
+    });
+  },
+
+  updateBook(book) {
+    return fetch(`${ENV.backendURL}/books/${book.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(book)
+    });
   }
 
 });

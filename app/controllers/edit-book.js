@@ -1,20 +1,8 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import EmberObject from '@ember/object';
+// import { set } from '@ember/object';
 
 export default Controller.extend({
-  init() {
-    this._super(...arguments);
-    this.set('book', EmberObject.create());
-    this.get('book').set('cover', '');
-    this.get('book').set('title', '');
-    this.get('book').set('author', '');
-    this.get('book').set('description', '');
-    this.get('book').set('pages', 0);
-    this.get('book').set('rating', 0);
-    this.get('book').set('tags', '');
-  },
-
   dataService: service('data'),
   router: service(),
 
@@ -22,14 +10,24 @@ export default Controller.extend({
     async saveBook(book) {
       // console.log(book);
 
-      await this.get('dataService').createBook({
+      // // if tags was untouched conver it to string
+      // if (Array.isArray(book.tags)) {
+      //   console.log(book.tags);
+      //   // book.tags = book.tags.join(',');
+      //   set(book, 'tags', book.tags.join(','));
+      //   console.log(book.tags);
+
+      // }
+
+      await this.get('dataService').updateBook({
+        id: book.id,
         title: book.title,
         author: book.author,
         description: book.description,
         cover: book.cover,
         pages: parseInt(book.pages),
         rating: parseInt(book.rating),
-        tags: book.tags.split(','),
+        tags: Array.isArray(book.tags) ? book.tags : book.tags.split(',')
       });
 
       this.get('router').transitionTo('books');
