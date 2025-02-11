@@ -8,10 +8,14 @@ export default Service.extend({
     this.set('books', A());
   },
 
-  async getBooks() {
+  async getBooks(search) {
     // return await fetch(`${ENV.backendURL}/books`).then((r) => r.json());
 
-    let response = await fetch(`${ENV.backendURL}/books`);
+    let queryParams = '';
+    if (search) {
+      queryParams = `?q=${search}`;
+    }
+    let response = await fetch(`${ENV.backendURL}/books${queryParams}`);
     let books = await response.json();
     this.get('books').clear();
     this.get('books').pushObjects(books);
