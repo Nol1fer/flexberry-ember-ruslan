@@ -12,7 +12,7 @@ export default Controller.extend({
     this.get('book').set('description', '');
     this.get('book').set('pages', 0);
     this.get('book').set('rating', 0);
-    this.get('book').set('tags', '');
+    this.get('book').set('tags', []);
   },
 
   dataService: service('data'),
@@ -29,7 +29,7 @@ export default Controller.extend({
         cover: book.cover,
         pages: parseInt(book.pages),
         rating: parseInt(book.rating),
-        tags: book.tags.split(','),
+        tags: book.tags,
       });
 
       this.get('router').transitionTo('books');

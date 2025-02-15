@@ -37,7 +37,7 @@ module.exports = function(defaults) {
   });
 
   const jqueryFiles = funnel('node_modules/blueimp-file-upload/js', {
-    include: ['**/*.js'],
+    files: ['**/*.js'],
     destDir: 'js'
   });
 
